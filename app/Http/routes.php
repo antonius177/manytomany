@@ -1,5 +1,8 @@
 <?php
 
+use App\Role;
+use App\User;
+
 /*
 |--------------------------------------------------------------------------
 | Application Routes
@@ -13,4 +16,11 @@
 
 Route::get('/', function () {
     return view('welcome');
+});
+
+Route::get('/create',  function (){ 
+$user = User::find(1);
+
+$role = new Role(['name'=>'Administrator']);
+$user->roles()->save($role);
 });
